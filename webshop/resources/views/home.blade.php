@@ -15,6 +15,15 @@
                     @endif
 
                     {{ __('Sikeres bejelentkezés!') }}
+
+                    <h1>Üdvözöljük a webshopunkban!</h1>
+    
+    <h2>Termékek:</h2>
+    <ul>
+        @foreach($products as $product)
+            <li>{{ $product->name }}</li>
+        @endforeach
+    </ul>
                 </div>
             </div>
         </div>
