@@ -17,11 +17,16 @@
                     {{ __('Sikeres bejelentkezés!') }}
 
                     <h1>Üdvözöljük a webshopunkban!</h1>
-    
+    <h3>Rendezés:   Szerint</h3>
     <h2>Termékek:</h2>
     <ul>
         @foreach($products as $product)
-            <li>{{ $product->name }}</li>
+        <div class="card ">
+            <lo>{{ $product->name}} </lo>
+            <lo>{{ $product->category }} </lo>
+            <lo>{{ $product->description}}</lo>
+            <lo>{{ $product->price }}</lo>
+</div>
         @endforeach
     </ul>
                 </div>
