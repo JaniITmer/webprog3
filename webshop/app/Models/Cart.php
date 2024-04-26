@@ -6,31 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
-{
-    use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        // További töltendő oszlopok
-    ];
-
-    public function user()
     {
-        return $this->belongsTo(User::class);
+        protected $table = 'cart'; 
+    
+        protected $fillable = [
+            'user_id', 
+            'product_id', 
+            'mennyiseg' 
+            
+        ];
+    
+        
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+    
+        
+        public function termek()
+        {
+            return $this->belongsTo(Product::class, 'product_id', 'id');
+        }
     }
-
-    public function store(Request $request)
-{
-    // Felhasználó létrehozása
-
-    $user = User::create([
-        // Felhasználó adatai
-    ]);
-
-    // Felhasználó kosarához tartozó rekord létrehozása
-    Cart::create([
-        'user_id' => $user->id,
-        // További adatok a kosárhoz
-    ]);
-}
-}
