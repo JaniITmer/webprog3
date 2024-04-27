@@ -23,11 +23,24 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
-
-
-        return view('home',['products' => $products]);
+      
+        $rendezes = $request->get('rendezes', 'default');
+    
+       
+        switch ($rendezes) {
+            case 'ar_novekvo':
+                $products = Product::orderBy('price', 'asc')->paginate(20);
+                break;
+            case 'ar_csokkeno':
+                $products = Product::orderBy('price', 'desc')->paginate(20);
+                break;
+            default:
+                $products = Product::paginate(20);
+                break;
+        }
+    
+        return view('home')->with('products', $products);
     }
 }

@@ -17,12 +17,20 @@
                     <td>{{ $elem->termek->name }}</td>
                     <td>{{ $elem->termek->price }} Ft</td>
                     <td>{{ $elem->mennyiseg }}</td>
-                    <td>{{ $elem->price * $elem->mennyiseg }} Ft</td>
+                    <td>{{ $elem->termek->price * $elem->mennyiseg }} Ft</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
     <div>
-        <h2>Végösszeg: {{ $kosarElemek->sum('price') }} Ft</h2>
+        <h2>Végösszeg:
+            @php
+                $vegosszeg = 0;
+                foreach ($kosarElemek as $elem) {
+                    $vegosszeg += $elem->termek->price * $elem->mennyiseg;
+                }
+                echo $vegosszeg . ' Ft';
+            @endphp
+        </h2>
     </div>
 @endsection

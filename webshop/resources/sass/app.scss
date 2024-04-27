@@ -6,3 +6,12 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+
+// Írjuk felül a lapozó nyilak stílusát
+.pagination .page-item .page-link {
+    background: none; // Háttér törlése
+    border: none; // Keret törlése
+    box-shadow: none; // Árnyék törlése
+}
