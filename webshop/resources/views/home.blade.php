@@ -18,6 +18,8 @@
 
                     <h1>Üdvözöljük a webshopunkban!</h1>
                     <h3>Rendezés: 
+                        <a href="{{ route('home', ['rendezes' => 'nev_novekvo']) }}">Név növekvő</a> |
+                        <a href="{{ route('home', ['rendezes' => 'nev_csokkeno']) }}">Név csökkenő</a> |
                         <a href="{{ route('home', ['rendezes' => 'ar_novekvo']) }}">Ár növekvő</a> |
                         <a href="{{ route('home', ['rendezes' => 'ar_csokkeno']) }}">Ár csökkenő</a>
                     </h3>

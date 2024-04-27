@@ -26,13 +26,21 @@ class HomeController extends Controller
     public function index(Request $request)
     {
       
-        $rendezes = $request->get('rendezes', 'default');
+        $rendezes = $request->query('rendezes', 'default');
     
        
         switch ($rendezes) {
             case 'ar_novekvo':
                 $products = Product::orderBy('price', 'asc')->paginate(20);
                 break;
+
+                case 'nev_novekvo':
+                    $products = Product::orderBy('name', 'asc')->paginate(20);
+                    break;
+
+                    case 'nev_csokkeno':
+                        $products = Product::orderBy('name', 'desc')->paginate(20);
+                        break;
             case 'ar_csokkeno':
                 $products = Product::orderBy('price', 'desc')->paginate(20);
                 break;
