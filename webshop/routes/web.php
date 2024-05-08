@@ -29,3 +29,4 @@ Route::get('/cart', [CartController::class, 'mutat'])->middleware('auth')->name(
 Route::post('/hozzaad', [CartController::class, 'hozzaad'])->name('cart.hozzaad');
 Route::get('/products/category/{category}', [ProductController::class, 'showByCategory'])->name('products.category');
 Route::get('/products/{id}', [ProductController::class, 'showDetails'])->name('product.details');
+Route::delete('/products/delete', [ProductController::class, 'delete'])->name('products.delete');

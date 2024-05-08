@@ -37,7 +37,8 @@
                         
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('products.category', ['category' => 'ruha']) }}">Ruhák</a>
-                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'elektronika']) }}">Elektronika</a>
+                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'Electronics']) }}">Elektronika</a>
+                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'szepsegapolas']) }}">Szépségápolás</a>
                                 <a class="dropdown-item" href="{{ route('products.category', ['category' => 'szepsegapolas']) }}">Szépségápolás</a>
                                 <!-- További kategóriák -->
                             </div>
