@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Cart;
@@ -32,7 +36,7 @@ class OrderController extends Controller
             'address' => $request->address,
         ]);
 
-        // Felhasználó kosarának kiürítése
+        // Kosárban lévő elemek törlése
         Cart::where('user_id', Auth::id())->delete();
 
         return redirect()->route('order.success')->with('message', 'A rendelés sikeresen leadva!');

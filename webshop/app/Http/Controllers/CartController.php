@@ -67,4 +67,20 @@ class CartController extends Controller
 
     return response()->json(['success' => false, 'message' => 'Hibás adat.']);
 }
+public function update(Request $request)
+{
+    $cartItemId = $request->input('cartItemId');
+    $newQuantity = $request->input('newQuantity');
+
+    if (is_numeric($cartItemId) && is_numeric($newQuantity)) {
+        $cartItem = Cart::find($cartItemId);
+        
+        if ($cartItem) {
+            $cartItem->update(['mennyiseg' => $newQuantity]);
+            return response()->json(['success' => true]);
+        }
+    }
+
+    return response()->json(['success' => false, 'message' => 'Hibás adat.']);
+}
 }

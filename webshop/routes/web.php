@@ -35,3 +35,4 @@ Route::delete('/cart/delete', [CartController::class, 'delete'])->name('cart.del
 Route::get('/order', [OrderController::class, 'showOrderForm'])->name('order.form')->middleware('auth');
 Route::post('/order', [OrderController::class, 'submitOrder'])->name('order.submit')->middleware('auth');
 Route::get('/order/success', [OrderController::class, 'orderSuccess'])->name('order.success');
+Route::put('/cart/update', [CartController::class, 'update'])->name('cart.update');

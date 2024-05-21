@@ -17,18 +17,35 @@
                     {{ __('Sikeres bejelentkezés!') }}
 
                     <h1>Üdvözöljük a webshopunkban!</h1>
-    <h3>Rendezés    Szerint</h3>
-    <h2>Termékek:</h2>
-    <ul>
-        @foreach($products as $product)
-        <div class="card ">
-            <lo>{{ $product->name}} </lo>
-            <lo>{{ $product->category }} </lo>
-            <lo>{{ $product->description}}</lo>
-            <lo>{{ $product->price }}</lo>
-</div>
-        @endforeach
-    </ul>
+                    <h3>Rendezés: 
+                        <a href="{{ route('home', ['rendezes' => 'nev_novekvo']) }}">Név növekvő</a> |
+                        <a href="{{ route('home', ['rendezes' => 'nev_csokkeno']) }}">Név csökkenő</a> |
+                        <a href="{{ route('home', ['rendezes' => 'ar_novekvo']) }}">Ár növekvő</a> |
+                        <a href="{{ route('home', ['rendezes' => 'ar_csokkeno']) }}">Ár csökkenő</a>
+                    </h3>
+                    
+                    <h2>Termékek:</h2>
+                    <ul>
+                        @foreach($products as $product)
+                        <div class="card ">
+                            <li>
+                                {{ $product->name }} - {{ $product->price }} Ft
+                                <form action="{{ route('cart.hozzaad') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="termek_id" value="{{ $product->id }}">
+                                    <input type="number" name="mennyiseg" value="1" min="1">
+                                    <button type="submit">Kosárba helyezés</button>
+                                </form>
+                            </li>
+                        </div>
+                        @endforeach
+                        @if(session('message'))
+                            <div class="alert alert-success">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+                    </ul>
+                   
                 </div>
             </div>
         </div>
