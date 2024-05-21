@@ -23,4 +23,16 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('product.details', ['product' => $product]);
     }
+
+    public function delete(Request $request)
+{
+    $numToDelete = $request->input('numToDelete');
+
+    if (is_numeric($numToDelete) && $numToDelete > 0) {
+        Product::orderBy('created_at', 'desc')->take($numToDelete)->delete();
+        return response()->json(['success' => true]);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Hibás adat.']);
+}
 }
