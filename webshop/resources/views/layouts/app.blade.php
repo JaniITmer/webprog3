@@ -36,10 +36,11 @@
                             </a>
                         
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'ruha']) }}">Ruhák</a>
+                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'Clothing']) }}">Ruhák</a>
                                 <a class="dropdown-item" href="{{ route('products.category', ['category' => 'Electronics']) }}">Elektronika</a>
-                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'szepsegapolas']) }}">Szépségápolás</a>
-                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'szepsegapolas']) }}">Szépségápolás</a>
+                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'Beauty']) }}">Szépségápolás</a>
+                                <a class="dropdown-item" href="{{ route('products.category', ['category' => 'Sports']) }}">Sport</a>
+                               
                                 <!-- További kategóriák -->
                             </div>
                         </li>
@@ -52,7 +53,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Bejelentkezés') }}</a>
                             </li>
-                            
+                            +
                         @endif
 
                         @if (Route::has('register'))
