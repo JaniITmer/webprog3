@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>{{ $product->name }}</h2>
-                <p>{{ $product->description }}</p>
-                <p>Ár: {{ $product->price }} Ft</p>
-                <!-- További részletek megjelenítése (pl. kategória, stb.) -->
+<div class="container py-4">
+        <h1 class="mb-4">Termék részletei</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ $product->name }}</h5>
+                <p class="card-text">Ár: {{ $product->price }} Ft</p>
+                <p class="card-text">Kategória: {{ $product->category }}</p>
+                <p class="card-text">Leírás: {{ $product->description }}</p>
+                <form action="{{ route('cart.hozzaad') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="termek_id" value="{{ $product->id }}">
+                                    <input type="number" name="mennyiseg" value="1" min="1">
+                                    <button type="submit">Kosárba helyezés</button>
+                                </form>
             </div>
         </div>
     </div>

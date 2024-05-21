@@ -83,4 +83,15 @@ public function update(Request $request)
 
     return response()->json(['success' => false, 'message' => 'Hibás adat.']);
 }
+public function add($id)
+{
+    $product = Product::findOrFail($id);
+    Cart::create([
+        'user_id' => Auth::id(),
+        'product_id' => $id,
+        'quantity' => 1, // Ezt átállíthatod a kívánt kezdő mennyiségre
+    ]);
+
+    return back()->with('message', 'A termék sikeresen hozzá lett adva a kosárhoz!');
+}
 }
