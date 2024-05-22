@@ -9,11 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','category','description', 'price', ];
+    protected $fillable = ['name','category','description', 'price', 'image',];
 
     public function index()
 {
-    // Ár szerint rendezve kérjük le a termékeket
+  
     $products = Product::orderBy('price')->get();
 
     return view('home')->with('products', $products);

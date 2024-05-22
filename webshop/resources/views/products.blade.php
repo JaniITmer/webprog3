@@ -10,6 +10,9 @@
                         <img src="{{ $product->image_url }}" class="card-img-top" alt="{{ $product->name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
+                            @if ($product->image)
+        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="max-width: 400px;">
+    @endif
                             <p class="card-text">{{ $product->description }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">

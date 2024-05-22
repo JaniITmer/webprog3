@@ -8,6 +8,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Termék neve</th>
+                        <th scope="col">Képe</th>
                         <th scope="col">Ár</th>
                         <th scope="col">Mennyiség</th>
                         <th scope="col">Összesen</th>
@@ -17,7 +18,10 @@
                 <tbody>
                     @foreach ($kosarElemek as $elem)
                         <tr>
-                            <td>{{ $elem->termek->name }}</td>
+                        <td><a href="{{ route('product.details', $elem->termek->id) }}">{{ $elem->termek->name }}</a></td>
+                            <td>
+                                <img src="{{ asset('storage/' . $elem->termek->image) }}" alt="{{ $elem->termek->name }}" width="50">
+                            </td>
                             <td>{{ $elem->termek->price }} Ft</td>
                             <td>
                                 <input type="number" value="{{ $elem->mennyiseg }}" min="1" onchange="changeQuantity({{ $elem->id }}, this.value)">

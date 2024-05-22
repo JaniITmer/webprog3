@@ -6,6 +6,9 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $product->name }}</h5>
+                @if ($product->image)
+        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" style="max-width: 400px;">
+    @endif
                 <p class="card-text">Ár: {{ $product->price }} Ft</p>
                 <p class="card-text">Kategória: {{ $product->category }}</p>
                 <p class="card-text">Leírás: {{ $product->description }}</p>
