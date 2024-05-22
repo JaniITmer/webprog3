@@ -16,12 +16,12 @@
                             <p class="card-text">{{ $product->description }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{ route('product.details', $product->id) }}" class="btn btn-sm btn-outline-secondary">Részletek</a>
+                                    <a href="{{ route('product.details', $product->id) }}" class="btn btn-sm btn-outline-secondary btn btn-info">Részletek</a>
                                     <form action="{{ route('cart.hozzaad') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="termek_id" value="{{ $product->id }}">
                                         <input type="number" name="mennyiseg" value="1" min="1">
-                                        <button type="submit">Kosárba helyezés</button>
+                                        <button type="submit" class="btn btn-sm btn-success">Kosárba helyezés</button>
                                     </form>
                                 </div>
                                 <small class="text-muted">{{ $product->price }} Ft</small>
